@@ -1,6 +1,6 @@
 use crate::abort_on_panic;
 use libc::{c_char, c_ulong};
-use libnewsboat::utils;
+use libnewsboat::utils::{self, *};
 use libnewsboat::{
     log,
     logger::{self, Level},
@@ -8,6 +8,14 @@ use libnewsboat::{
 use std::ffi::{CStr, CString};
 use std::path;
 use std::ptr;
+
+#[cxx::bridge(namespace = newsboat::utils)]
+mod ffi {
+    extern "Rust" {
+        fn get_random_value(rs_max: u32) -> u32;
+    }
+}
+pub use ffi::*;
 
 #[repr(C)]
 pub struct FilterUrl {

@@ -15,7 +15,7 @@
 #include "configcontainer.h"
 #include "logger.h"
 
-#include "target/cxxbridge/libnewsboat-ffi/src/cxx_ffi.rs.h"
+#include "target/cxxbridge/libnewsboat-ffi/src/utils.rs.h"
 
 namespace newsboat {
 
