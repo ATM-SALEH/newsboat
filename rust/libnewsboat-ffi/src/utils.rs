@@ -15,6 +15,8 @@ mod ffi {
         fn get_random_value(rs_max: u32) -> u32;
 
         fn to_u(input: String, default_value: u32) -> u32;
+
+        fn replace_all(input: String, from: &str, to: &str) -> String;
     }
 }
 pub use ffi::*;
@@ -23,36 +25,6 @@ pub use ffi::*;
 pub struct FilterUrl {
     filter: *mut c_char,
     url: *mut c_char,
-}
-
-#[no_mangle]
-pub unsafe extern "C" fn rs_replace_all(
-    input: *const c_char,
-    from: *const c_char,
-    to: *const c_char,
-) -> *mut c_char {
-    abort_on_panic(|| {
-        let rs_input = CStr::from_ptr(input);
-        let rs_input = rs_input.to_string_lossy().into_owned();
-
-        let rs_from = CStr::from_ptr(from);
-        // This won't panic because all strings in Newsboat are in UTF-8
-        let rs_from = rs_from.to_str().expect("rs_from contained invalid UTF-8");
-
-        let rs_to = CStr::from_ptr(to);
-        // This won't panic because all strings in Newsboat are in UTF-8
-        let rs_to = rs_to.to_str().expect("rs_to contained invalid UTF-8");
-
-        let result = utils::replace_all(rs_input, rs_from, rs_to);
-        // Panic here can't happen because:
-        // 1. panic can only happen if `result` contains null bytes;
-        // 2. `result` contains what `input` contained, plus maybe what `to` contains (if there were
-        //    replacements);
-        // 3. neither `input` nor `to` could contain null bytes because they're null-terminated
-        //    strings we got from C.
-        let result = CString::new(result).unwrap();
-        result.into_raw()
-    })
 }
 
 #[no_mangle]

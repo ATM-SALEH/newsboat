@@ -665,14 +665,15 @@ TEST_CASE("resolve_relative() returns an absolute file path relative to another"
 
 TEST_CASE("replace_all()", "[utils]")
 {
-	REQUIRE(utils::replace_all("aaa", "a", "b") == "bbb");
-	REQUIRE(utils::replace_all("aaa", "aa", "ba") == "baa");
-	REQUIRE(utils::replace_all("aaaaaa", "aa", "ba") == "bababa");
-	REQUIRE(utils::replace_all("", "a", "b") == "");
-	REQUIRE(utils::replace_all("aaaa", "b", "c") == "aaaa");
-	REQUIRE(utils::replace_all("this is a normal test text", " t", " T") ==
+	REQUIRE(std::string(utils::replace_all("aaa", "a", "b")) == "bbb");
+	REQUIRE(std::string(utils::replace_all("aaa", "aa", "ba")) == "baa");
+	REQUIRE(std::string(utils::replace_all("aaaaaa", "aa", "ba")) == "bababa");
+	REQUIRE(std::string(utils::replace_all("", "a", "b")) == "");
+	REQUIRE(std::string(utils::replace_all("aaaa", "b", "c")) == "aaaa");
+	REQUIRE(std::string(utils::replace_all("this is a normal test text", " t",
+				" T")) ==
 		"this is a normal Test Text");
-	REQUIRE(utils::replace_all("o o o", "o", "<o>") == "<o> <o> <o>");
+	REQUIRE(std::string(utils::replace_all("o o o", "o", "<o>")) == "<o> <o> <o>");
 }
 
 TEST_CASE("to_string()", "[utils]")

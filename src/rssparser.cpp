@@ -100,8 +100,8 @@ time_t RssParser::parse_date(const std::string& datestr)
 
 void RssParser::replace_newline_characters(std::string& str)
 {
-	str = utils::replace_all(str, "\r", " ");
-	str = utils::replace_all(str, "\n", " ");
+	str = std::string(utils::replace_all(str, "\r", " "));
+	str = std::string(utils::replace_all(str, "\n", " "));
 	utils::trim(str);
 }
 

@@ -526,13 +526,6 @@ std::string utils::resolve_relative(const std::string& reference,
 	return RustString(rs_resolve_relative(reference.c_str(), fname.c_str()));
 }
 
-std::string utils::replace_all(std::string str,
-	const std::string& from,
-	const std::string& to)
-{
-	return RustString( rs_replace_all(str.c_str(), from.c_str(), to.c_str()) );
-}
-
 std::wstring utils::str2wstr(const std::string& str)
 {
 	const char* codeset = nl_langinfo(CODESET);

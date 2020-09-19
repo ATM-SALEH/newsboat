@@ -14,11 +14,6 @@ struct FilterUrl {
 	char* url;
 };
 
-char* rs_replace_all(
-	const char* str,
-	const char* from,
-	const char* to);
-
 char* rs_consolidate_whitespace(const char* str);
 
 char* rs_absolute_url(const char* base_url, const char* link);

@@ -340,9 +340,10 @@ nonstd::optional<std::uint8_t> View::open_in_browser(const std::string& url)
 	current_formaction = formaction_stack_size() - 1;
 	std::string cmdline;
 	const std::string browser = cfg->get_configvalue("browser");
-	const std::string escaped_url = "'" + utils::replace_all(url, "'", "%27") + "'";
+	const std::string escaped_url = "'" + std::string(utils::replace_all(url, "'",
+				"%27")) + "'";
 	if (browser.find("%u") != std::string::npos) {
-		cmdline = utils::replace_all(browser, "%u", escaped_url);
+		cmdline = std::string(utils::replace_all(browser, "%u", escaped_url));
 	} else {
 		if (browser != "") {
 			cmdline.append(browser);

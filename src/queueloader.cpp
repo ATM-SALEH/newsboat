@@ -252,7 +252,7 @@ std::string QueueLoader::get_filename(const std::string& str)
 		time_t t = time(nullptr);
 		fn.append(utils::mt_strf_localtime("%Y-%b-%d-%H%M%S.unknown", t));
 	} else {
-		fn.append(utils::replace_all(base, "'", "%27"));
+		fn.append(std::string(utils::replace_all(base, "'", "%27")));
 	}
 	return fn;
 }

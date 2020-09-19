@@ -72,9 +72,6 @@ std::string run_program(const char* argv[], const std::string& input);
 
 std::string resolve_tilde(const std::string&);
 std::string resolve_relative(const std::string&, const std::string&);
-std::string replace_all(std::string str,
-	const std::string& from,
-	const std::string& to);
 
 std::wstring str2wstr(const std::string& str);
 std::string wstr2str(const std::wstring& wstr);

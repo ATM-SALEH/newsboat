@@ -560,10 +560,10 @@ std::string FormAction::bookmark(const std::string& url,
 	if (bookmark_cmd.length() > 0) {
 		std::string cmdline = strprintf::fmt("%s '%s' '%s' '%s' '%s'",
 				bookmark_cmd,
-				utils::replace_all(url, "'", "%27"),
-				utils::replace_all(title, "'", "%27"),
-				utils::replace_all(description, "'", "%27"),
-				utils::replace_all(feed_title, "'", "%27"));
+				std::string(utils::replace_all(url, "'", "%27")),
+				std::string(utils::replace_all(title, "'", "%27")),
+				std::string(utils::replace_all(description, "'", "%27")),
+				std::string(utils::replace_all(feed_title, "'", "%27")));
 
 		LOG(Level::DEBUG, "FormAction::bookmark: cmd = %s", cmdline);
 

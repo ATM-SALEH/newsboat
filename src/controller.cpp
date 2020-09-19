@@ -781,7 +781,7 @@ void Controller::edit_urls_file()
 
 	std::string cmdline = strprintf::fmt("%s \"%s\"",
 			editor,
-			utils::replace_all(configpaths.url_file(), "\"", "\\\""));
+			std::string(utils::replace_all(configpaths.url_file(), "\"", "\\\"")));
 
 	v->push_empty_formaction();
 	Stfl::reset();

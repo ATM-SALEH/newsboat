@@ -923,7 +923,7 @@ void HtmlRenderer::render(std::istream& input,
 					curline.append(" ");
 				}
 				// strip newlines
-				text = utils::replace_all(text, "\n", " ");
+				text = std::string(utils::replace_all(text, "\n", " "));
 				curline.append(text);
 			}
 		}

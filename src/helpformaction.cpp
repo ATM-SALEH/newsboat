@@ -192,9 +192,9 @@ void HelpFormAction::prepare()
 						line);
 					if (apply_search &&
 						searchphrase.length() > 0) {
-						line = utils::replace_all(line,
-								searchphrase,
-								highlighted_searchphrase);
+						line = std::string(utils::replace_all(line,
+									searchphrase,
+									highlighted_searchphrase));
 						LOG(Level::DEBUG,
 							"HelpFormAction::"
 							"prepare: "

@@ -33,7 +33,7 @@ void TextFormatter::add_lines(
 {
 	for (const auto& line : lines) {
 		add_line(line.first,
-			utils::replace_all(line.second, "\t", "        "));
+			std::string(utils::replace_all(line.second, "\t", "        ")));
 	}
 }
 
