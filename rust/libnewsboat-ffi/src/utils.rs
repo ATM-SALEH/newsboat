@@ -274,11 +274,6 @@ pub unsafe extern "C" fn rs_quote_if_necessary(input: *const c_char) -> *mut c_c
 }
 
 #[no_mangle]
-pub extern "C" fn rs_get_random_value(rs_max: u32) -> u32 {
-    abort_on_panic(|| utils::get_random_value(rs_max))
-}
-
-#[no_mangle]
 pub unsafe extern "C" fn rs_get_auth_method(input: *const c_char) -> c_ulong {
     abort_on_panic(|| {
         let rs_input = CStr::from_ptr(input);

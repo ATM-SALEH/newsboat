@@ -21,6 +21,9 @@ pub mod matchererror;
 pub mod scopemeasure;
 pub mod utils;
 
+mod cxx_ffi;
+pub use cxx_ffi::ffi::*;
+
 /// Runs a Rust function, and if it panics, calls abort(); otherwise returns what function
 /// returned.
 fn abort_on_panic<F: FnOnce() -> R + UnwindSafe, R>(function: F) -> R {
