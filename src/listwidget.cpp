@@ -122,12 +122,12 @@ void ListWidget::set_position(std::uint32_t pos)
 
 std::uint32_t ListWidget::get_width()
 {
-	return utils::to_u(form.get(list_name + ":w"));
+	return utils::to_u(form.get(list_name + ":w"), 0);
 }
 
 std::uint32_t ListWidget::get_height()
 {
-	return utils::to_u(form.get(list_name + ":h"));
+	return utils::to_u(form.get(list_name + ":h"), 0);
 }
 
 std::uint32_t ListWidget::get_scroll_offset()

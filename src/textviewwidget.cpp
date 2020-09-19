@@ -108,12 +108,12 @@ void TextviewWidget::set_scroll_offset(std::uint32_t offset)
 
 std::uint32_t TextviewWidget::get_width()
 {
-	return utils::to_u(form.get(textview_name + ":w"));
+	return utils::to_u(form.get(textview_name + ":w"), 0);
 }
 
 std::uint32_t TextviewWidget::get_height()
 {
-	return utils::to_u(form.get(textview_name + ":h"));
+	return utils::to_u(form.get(textview_name + ":h"), 0);
 }
 
 } // namespace newsboat

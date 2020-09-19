@@ -95,9 +95,6 @@ std::string substr_with_width(const std::string& str,
 std::string substr_with_width_stfl(const std::string& str,
 	const size_t max_width);
 
-unsigned int to_u(const std::string& str,
-	const unsigned int default_value = 0);
-
 bool is_valid_color(const std::string& color);
 bool is_valid_attribute(const std::string& attrib);
 

@@ -185,7 +185,7 @@ static int rssitem_callback(void* myfeed, int argc, char** argv,
 	is >> t;
 	item->set_pubDate(t);
 
-	item->set_size(utils::to_u(argv[5]));
+	item->set_size(utils::to_u(argv[5], 0));
 	item->set_unread((std::string("1") == argv[6]));
 
 	item->set_feedurl(argv[7]);
@@ -235,7 +235,7 @@ static int search_item_callback(void* myfeed,
 	is >> t;
 	item->set_pubDate(t);
 
-	item->set_size(utils::to_u(argv[5]));
+	item->set_size(utils::to_u(argv[5], 0));
 	item->set_unread((std::string("1") == argv[6]));
 	item->set_feedurl(argv[7]);
 

@@ -585,12 +585,6 @@ std::string utils::get_useragent(ConfigContainer* cfgcont)
 	return ua_pref;
 }
 
-unsigned int utils::to_u(const std::string& str,
-	const unsigned int default_value)
-{
-	return rs_to_u(str.c_str(), default_value);
-}
-
 bool utils::is_valid_color(const std::string& color)
 {
 	return rs_is_valid_color(color.c_str());

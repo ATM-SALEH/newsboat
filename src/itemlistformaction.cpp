@@ -1128,7 +1128,7 @@ void ItemListFormAction::set_head(const std::string& s,
 
 	fmt.register_fmt('F', apply_filter ? matcher.get_expression() : "");
 
-	const unsigned int width = utils::to_u(f.get("title:w"));
+	const unsigned int width = utils::to_u(f.get("title:w"), 0);
 	if (!show_searchresult) {
 		title = fmt.do_format(
 				cfg->get_configvalue("articlelist-title-format"),

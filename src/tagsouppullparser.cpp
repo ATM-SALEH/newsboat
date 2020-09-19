@@ -456,7 +456,7 @@ std::string TagSoupPullParser::decode_entity(std::string s)
 			is >> std::hex >> wc;
 		} else {
 			s.erase(0, 1);
-			wc = utils::to_u(s);
+			wc = utils::to_u(s, 0);
 		}
 		int pos;
 		// convert some common but unknown numeric entities

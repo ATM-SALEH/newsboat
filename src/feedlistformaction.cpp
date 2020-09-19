@@ -98,7 +98,7 @@ REDO:
 	case OP_OPEN: {
 		if (f.get_focus() == "feeds") {
 			if (automatic && args->size() > 0) {
-				pos = utils::to_u((*args)[0]);
+				pos = utils::to_u((*args)[0], 0);
 			}
 			LOG(Level::INFO,
 				"FeedListFormAction: opening feed at position "

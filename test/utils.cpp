@@ -799,9 +799,9 @@ TEST_CASE("quote()", "[utils]")
 
 TEST_CASE("to_u()", "[utils]")
 {
-	REQUIRE(utils::to_u("0") == 0);
-	REQUIRE(utils::to_u("23") == 23);
-	REQUIRE(utils::to_u("") == 0);
+	REQUIRE(utils::to_u("0", 0) == 0);
+	REQUIRE(utils::to_u("23", 0) == 23);
+	REQUIRE(utils::to_u("", 0) == 0);
 }
 
 TEST_CASE("strwidth()", "[utils]")
