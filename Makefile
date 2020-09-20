@@ -104,6 +104,9 @@ all: doc $(NEWSBOAT) $(PODBOAT) mo-files
 
 NB_DEPS=xlicense.h $(LIB_OUTPUT) $(FILTERLIB_OUTPUT) $(NEWSBOAT_OBJS) $(RSSPPLIB_OUTPUT) $(NEWSBOATLIB_OUTPUT)
 
+target/cxxbridge/libnewsboat-ffi/src/utils.rs.h: $(NEWSBOATLIB_OUTPUT)
+target/cxxbridge/libnewsboat-ffi/src/scopemeasure.rs.h: $(NEWSBOATLIB_OUTPUT)
+
 $(NEWSBOATLIB_OUTPUT): $(RUST_SRCS) Cargo.lock
 	+$(CARGO) build --package libnewsboat-ffi $(CARGO_FLAGS)
 
