@@ -14,7 +14,7 @@ CXX?=c++
 CXX_FOR_BUILD?=$(CXX)
 
 # compiler and linker flags
-DEFINES=-DLOCALEDIR=\"$(localedir)\"
+DEFINES=-DLOCALEDIR='"$(localedir)"'
 
 WARNFLAGS=-Werror -Wall -Wextra -Wunreachable-code
 INCLUDES=-Iinclude -Istfl -Ifilter -I. -Irss
