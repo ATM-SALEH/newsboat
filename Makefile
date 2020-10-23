@@ -61,6 +61,7 @@ else
 NEWSBOATLIB_OUTPUT=target/debug/libnewsboat.a
 LDFLAGS+=-L./target/debug
 endif
+RUSTFLAGS+=-C "link-args=-fprofile-arcs -ftest-coverage"
 else
 ifdef CARGO_BUILD_TARGET
 NEWSBOATLIB_OUTPUT=target/$(CARGO_BUILD_TARGET)/release/libnewsboat.a
