@@ -30,6 +30,7 @@ endif
 ifeq ($(PROFILE),1)
 BARE_CXXFLAGS+=-O0 -fprofile-arcs -ftest-coverage
 LDFLAGS+=-fprofile-arcs -ftest-coverage
+RUSTFLAGS+=-C link-args=-fprofile-arcs -C link-args=-ftest-coverage -C link-args=-lgcc_s
 endif
 
 CXXFLAGS:=$(BARE_CXXFLAGS) $(WARNFLAGS) $(DEFINES) $(CXXFLAGS)
@@ -61,7 +62,6 @@ else
 NEWSBOATLIB_OUTPUT=target/debug/libnewsboat.a
 LDFLAGS+=-L./target/debug
 endif
-RUSTFLAGS+=-C link-args=-fprofile-arcs -C link-args=-ftest-coverage
 else
 ifdef CARGO_BUILD_TARGET
 NEWSBOATLIB_OUTPUT=target/$(CARGO_BUILD_TARGET)/release/libnewsboat.a
