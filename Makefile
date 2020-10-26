@@ -30,7 +30,6 @@ endif
 ifeq ($(PROFILE),1)
 BARE_CXXFLAGS+=-O0 -fprofile-arcs -ftest-coverage
 LDFLAGS+=-fprofile-arcs -ftest-coverage
-RUSTFLAGS+=-C link-args=-fprofile-arcs -C link-args=-ftest-coverage
 endif
 
 CXXFLAGS:=$(BARE_CXXFLAGS) $(WARNFLAGS) $(DEFINES) $(CXXFLAGS)
