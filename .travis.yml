@@ -39,7 +39,7 @@ matrix:
         - COMPILER=clang++-11
         - REPORT_COVERAGE=yes
       before_install:
-        - cargo install grcov
+        - cargo install grcov cxxbridge-cmd
 
           # Can't have these in the `env` section above, because these settings break `cargo install`
         - export CARGO_INCREMENTAL=0
